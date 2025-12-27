@@ -79,16 +79,19 @@ formatNumber = (num)=>{
 
 const animatenumber = (num)=>{
     const total = +num.dataset.target;
+    const sufixo = num.dataset.suffix || "";
     let inicio = 0;
     let duração = total/120;
 
     const Update = ()=>{
         inicio += duração;
         if (inicio < total){
-            num.textContent = formatNumber(inicio);
+            let Inicio = formatNumber(inicio)
+            num.textContent = `+ ${Inicio}${sufixo}`;
             requestAnimationFrame(Update);
         } else {
-            num.textContent = formatNumber(total);
+            let Total = formatNumber(total)
+            num.textContent = `+ ${Total}${sufixo}`;
         }
     }
 

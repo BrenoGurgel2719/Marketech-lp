@@ -806,6 +806,11 @@ section.what {
     transform: scale(1.2);
 }
 
+.carousel-btn:focus{
+    outline: 1px solid rgb(0, 230, 180);
+    outline-offset: 1px;
+}
+
 .offer{
     padding: 120px 40px;
     text-align: center;

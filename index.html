@@ -644,7 +644,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </footer>
 
-    
+ <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+ <script>
+  // Inicializa o Lenis
+  const lenis = new Lenis({
+    duration: 2, // Duração da suavidade (em segundos)
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Função de suavização (física)
+    smoothWheel: true
+  });
+
+  // Função necessária para o Lenis funcionar com o ciclo de animação do browser (requestAnimationFrame)
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+</script>   
 </body>
 <script src="script.js"></script>
 </html>
